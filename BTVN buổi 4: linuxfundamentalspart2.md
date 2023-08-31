@@ -1,3 +1,4 @@
+link bài tập: https://tryhackme.com/room/linuxfundamentalspart2<br>
 *. task 2<br>
 - truy cập vào ssh<br>
 
