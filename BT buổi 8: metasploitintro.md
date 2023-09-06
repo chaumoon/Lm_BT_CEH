@@ -24,4 +24,31 @@ As: singles<br>
 - xài -> dòng lệnh thành msf6 or msf5 tùy phiên bản<br>
 
 1. How would you search for a module related to Apache?<br>
-As: 
+As: search apache<br>
+
+2. Who provided the auxiliary/scanner/ssh/ssh_login module?<br>
+- nhập lệnh: use auxiliary/scanner/ssh/ssh_login<br>
+
+![image](https://github.com/chaumoon/Lm_BT_CEH/assets/127403046/5e21e7cd-41c4-451d-8d2c-ce62196ca813)<br>
+
+- info:<br>
+
+![image](https://github.com/chaumoon/Lm_BT_CEH/assets/127403046/e1583e0c-c467-477a-a1f4-a2fe1d2bd3b2)<br>
+
+As: todb<br>
+
+*. task 4<br>
+- đặt tham số bằng cú pháp: set parameter_name value
+- xài set (chuyển module sẽ mất giá trị), xài setg (chuyển module vẫn ok)<br>
+
+1. How would you set the LPORT value to 6666?<br>
+As: set lport 6666<br>
+
+2. How would you set the global value for RHOSTS  to 10.10.19.23 ?<br>
+As: setg rhosts 10.10.19.23<br>
+
+3. What command would you use to clear a set payload?<br>
+As: unset payload<br>
+
+4. What command do you use to proceed with the exploitation phase?<br>
+As: exploit
