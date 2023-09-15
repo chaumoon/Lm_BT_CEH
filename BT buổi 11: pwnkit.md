@@ -16,6 +16,4 @@ As: pkexec<br>
 
 *. task 3<br>
 1. What is the flag located at /root/flag.txt?<br>
-As: THM{CONGRATULATIONS-YOU-EXPLOITED-PWNKIT}<br>
-
-*. task 4<br>
+As: THM{CONGRATULATIONS-YOU-EXPLOITED-PWNKIT}
