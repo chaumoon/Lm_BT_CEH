@@ -224,6 +224,9 @@ int main(int argc, char **argv)
 }
 ```
 
+1. What is the flag found in the /root/flag.txt file?<br>
+As: THM{MmU4Zjg0NDdjNjFiZWM5ZjUyZGEyMzlm}<br>
+
 *. task 4<br>
 - ghi đè lên tệp nhị phân SUID (ổn hơn /etc/passwd)
 - các bước:<br>
